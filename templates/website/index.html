@@ -1,10 +1,11 @@
-	<!DOCTYPE html>
+{% load static %}
+<!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
 
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-<link rel="shortcut icon" href="img/fav.png">
+<link rel="shortcut icon" href="{% static 'img/fav.png' %}">
 
 <meta name="author" content="colorlib">
 
@@ -17,15 +18,15 @@
 <title>Travel</title>
 <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
 
-<link rel="stylesheet" href="css/linearicons.css">
-<link rel="stylesheet" href="css/font-awesome.min.css">
-<link rel="stylesheet" href="css/bootstrap.css">
-<link rel="stylesheet" href="css/magnific-popup.css">
-<link rel="stylesheet" href="css/jquery-ui.css">
-<link rel="stylesheet" href="css/nice-select.css">
-<link rel="stylesheet" href="css/animate.min.css">
-<link rel="stylesheet" href="css/owl.carousel.css">
-<link rel="stylesheet" href="css/main.css">
+<link rel="stylesheet" href="{% static 'css/linearicons.css' %}">
+<link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/bootstrap.css' %}">
+<link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+<link rel="stylesheet" href="{% static 'css/jquery-ui.css' %}">
+<link rel="stylesheet" href="{% static 'css/nice-select.css' %}">
+<link rel="stylesheet" href="{% static 'css/animate.min.css' %}">
+<link rel="stylesheet" href="{% static 'css/owl.carousel.css' %}">
+<link rel="stylesheet" href="{% static 'css/main.css' %}">
 </head>
 <body>
 <header id="header">
@@ -52,7 +53,7 @@
 <div class="container main-menu">
 <div class="row align-items-center justify-content-between d-flex">
 <div id="logo">
-<a href="index.html"><img src="img/logo.png" alt title /></a>
+<a href="index.html"><img src="{% static 'img/logo.png' %}" alt title /></a>
 </div>
 <nav id="nav-menu-container">
 <ul class="nav-menu">
@@ -81,33 +82,73 @@
 </div>
 </header>
 
-<section class="about-banner relative">
+<section class="banner-area relative">
 <div class="overlay overlay-bg"></div>
 <div class="container">
-<div class="row d-flex align-items-center justify-content-center">
-<div class="about-content col-lg-12">
-<h1 class="text-white">
-About Us
-</h1>
-<p class="text-white link-nav"><a href="index.html">Home </a> <span class="lnr lnr-arrow-right"></span> <a href="about.html"> About Us</a></p>
+<div class="row fullscreen align-items-center justify-content-between">
+<div class="col-lg-6 col-md-6 banner-left">
+<h6 class="text-white">Away from monotonous life</h6>
+<h1 class="text-white">Magical Travel</h1>
+<p class="text-white">
+If you are looking at blank cassettes on the web, you may be very confused at the difference in price. You may see some for as low as $.17 each.
+</p>
+<a href="#" class="primary-btn text-uppercase">Get Started</a>
 </div>
+
 </div>
 </div>
 </section>
 
 
-<section class="about-info-area section-gap">
+<section class="popular-destination-area section-gap">
 <div class="container">
-<div class="row align-items-center">
-<div class="col-lg-6 info-left">
-<img class="img-fluid" src="img/about/info-img.jpg" alt>
+<div class="row d-flex justify-content-center">
+<div class="menu-content pb-70 col-lg-8">
+<div class="title text-center">
+<h1 class="mb-10">Popular Destinations</h1>
+<p>We all live in an age that belongs to the young at heart. Life that is becoming extremely fast, day.</p>
 </div>
-<div class="col-lg-6 info-right">
-<h6>About Us</h6>
-<h1>Who We Are?</h1>
-<p>
-Here, I focus on a range of items and features that we use in life without giving them a second thought. such as Coca Cola. Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
-</p>
+</div>
+</div>
+<div class="row">
+<div class="col-lg-4">
+<div class="single-destination relative">
+<div class="thumb relative">
+<div class="overlay overlay-bg"></div>
+<img class="img-fluid" src="{% static 'img/d1.jpg' %}" alt>
+</div>
+<div class="desc">
+<a href="#" class="price-btn">$150</a>
+<h4>Mountain River</h4>
+<p>Paraguay</p>
+</div>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="single-destination relative">
+<div class="thumb relative">
+<div class="overlay overlay-bg"></div>
+<img class="img-fluid" src="{% static 'img/d2.jpg' %}" alt>
+</div>
+<div class="desc">
+<a href="#" class="price-btn">$250</a>
+<h4>Dream City</h4>
+<p>Paris</p>
+</div>
+</div>
+</div>
+<div class="col-lg-4">
+<div class="single-destination relative">
+<div class="thumb relative">
+<div class="overlay overlay-bg"></div>
+<img class="img-fluid" src="{% static 'img/d3.jpg' %}" alt>
+</div>
+<div class="desc">
+<a href="#" class="price-btn">$350</a>
+<h4>Cloud Mountain</h4>
+<p>Sri Lanka</p>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -237,7 +278,7 @@ Here, I focus on a range of items and features that we use in life without givin
 <div class="col-lg-3 col-md-6">
 <div class="single-other-issue">
 <div class="thumb">
-<img class="img-fluid" src="img/o1.jpg" alt>
+<img class="img-fluid" src="{% static 'img/o1.jpg' %}" alt>
 </div>
 <a href="#">
 <h4>Rent a Car</h4>
@@ -250,7 +291,7 @@ The preservation of human life is the ultimate value, a pillar of ethics and the
 <div class="col-lg-3 col-md-6">
 <div class="single-other-issue">
 <div class="thumb">
-<img class="img-fluid" src="img/o2.jpg" alt>
+<img class="img-fluid" src="{% static 'img/o2.jpg' %}" alt>
 </div>
 <a href="#">
 <h4>Cruise Booking</h4>
@@ -263,7 +304,7 @@ I was always somebody who felt quite sorry for myself, what I had not got compar
 <div class="col-lg-3 col-md-6">
 <div class="single-other-issue">
 <div class="thumb">
-<img class="img-fluid" src="img/o3.jpg" alt>
+<img class="img-fluid" src="{% static 'img/o3.jpg' %}" alt>
 </div>
 <a href="#">
 <h4>To Do List</h4>
@@ -276,7 +317,7 @@ The following article covers a topic that has recently moved to center stage–a
 <div class="col-lg-3 col-md-6">
 <div class="single-other-issue">
 <div class="thumb">
-<img class="img-fluid" src="img/o4.jpg" alt>
+<img class="img-fluid" src="{% static 'img/o4.jpg' %}" alt>
 </div>
 <a href="#">
 <h4>Food Features</h4>
@@ -305,7 +346,7 @@ There are many kinds of narratives and organizing principles. Science is driven 
 <div class="active-testimonial">
 <div class="single-testimonial item d-flex flex-row">
 <div class="thumb">
-<img class="img-fluid" src="img/elements/user1.png" alt>
+<img class="img-fluid" src="{% static 'img/elements/user1.png' %}" alt>
 </div>
 <div class="desc">
 <p>
@@ -323,7 +364,7 @@ Do you want to be even more successful? Learn to love learning and growth. The m
 </div>
 <div class="single-testimonial item d-flex flex-row">
 <div class="thumb">
-<img class="img-fluid" src="img/elements/user2.png" alt>
+<img class="img-fluid" src="{% static 'img/elements/user2.png' %}" alt>
 </div>
 <div class="desc">
 <p>
@@ -341,7 +382,7 @@ A purpose is the eternal condition for success. Every former smoker can tell you
 </div>
 <div class="single-testimonial item d-flex flex-row">
 <div class="thumb">
-<img class="img-fluid" src="img/elements/user1.png" alt>
+<img class="img-fluid" src="{% static 'img/elements/user1.png' %}" alt>
 </div>
 <div class="desc">
 <p>
@@ -359,7 +400,7 @@ Do you want to be even more successful? Learn to love learning and growth. The m
 </div>
 <div class="single-testimonial item d-flex flex-row">
 <div class="thumb">
-<img class="img-fluid" src="img/elements/user2.png" alt>
+<img class="img-fluid" src="{% static 'img/elements/user2.png' %}" alt>
 </div>
 <div class="desc">
 <p>
@@ -377,7 +418,7 @@ A purpose is the eternal condition for success. Every former smoker can tell you
 </div>
 <div class="single-testimonial item d-flex flex-row">
 <div class="thumb">
-<img class="img-fluid" src="img/elements/user1.png" alt>
+<img class="img-fluid" src="{% static 'img/elements/user1.png' %}" alt>
 </div>
 <div class="desc">
 <p>
@@ -395,7 +436,7 @@ Do you want to be even more successful? Learn to love learning and growth. The m
 </div>
 <div class="single-testimonial item d-flex flex-row">
 <div class="thumb">
-<img class="img-fluid" src="img/elements/user2.png" alt>
+<img class="img-fluid" src="{% static 'img/elements/user2.png' %}" alt>
 </div>
 <div class="desc">
 <p>
@@ -409,6 +450,178 @@ A purpose is the eternal condition for success. Every former smoker can tell you
 <span class="fa fa-star"></span>
 <span class="fa fa-star"></span>
 </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="home-about-area">
+<div class="container-fluid">
+<div class="row align-items-center justify-content-end">
+<div class="col-lg-6 col-md-12 home-about-left">
+<h1>
+Did not find your Package? <br>
+Feel free to ask us. <br>
+We‘ll make it for you
+</h1>
+<p>
+inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on the job is beyond reproach. inappropriate behavior is often laughed.
+</p>
+<a href="#" class="primary-btn text-uppercase">request custom price</a>
+</div>
+<div class="col-lg-6 col-md-12 home-about-right no-padding">
+<img class="img-fluid" src="{% static 'img/about-img.jpg' %}" alt>
+</div>
+</div>
+</div>
+</section>
+
+
+<section class="recent-blog-area section-gap">
+<div class="container">
+<div class="row d-flex justify-content-center">
+<div class="menu-content pb-60 col-lg-9">
+<div class="title text-center">
+<h1 class="mb-10">Latest from Our Blog</h1>
+<p>With the exception of Nietzsche, no other madman has contributed so much to human sanity as has.</p>
+</div>
+</div>
+</div>
+<div class="row">
+<div class="active-recent-blog-carusel">
+<div class="single-recent-blog-post item">
+<div class="thumb">
+<img class="img-fluid" src="{% static 'img/b1.jpg' %}" alt>
+</div>
+<div class="details">
+<div class="tags">
+<ul>
+<li>
+<a href="#">Travel</a>
+</li>
+<li>
+<a href="#">Life Style</a>
+</li>
+</ul>
+</div>
+<a href="#"><h4 class="title">Low Cost Advertising</h4></a>
+<p>
+Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer.
+</p>
+<h6 class="date">31st January,2018</h6>
+</div>
+</div>
+<div class="single-recent-blog-post item">
+<div class="thumb">
+<img class="img-fluid" src="{% static 'img/b2.jpg' %}" alt>
+</div>
+<div class="details">
+<div class="tags">
+<ul>
+<li>
+<a href="#">Travel</a>
+</li>
+<li>
+<a href="#">Life Style</a>
+</li>
+</ul>
+</div>
+<a href="#"><h4 class="title">Creative Outdoor Ads</h4></a>
+<p>
+Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer.
+</p>
+<h6 class="date">31st January,2018</h6>
+</div>
+</div>
+<div class="single-recent-blog-post item">
+<div class="thumb">
+<img class="img-fluid" src=" {% static 'img/b3.jpg' %}" alt>
+</div>
+<div class="details">
+<div class="tags">
+<ul>
+<li>
+<a href="#">Travel</a>
+</li>
+<li>
+<a href="#">Life Style</a>
+</li>
+</ul>
+</div>
+<a href="#"><h4 class="title">It's Classified How To Utilize Free</h4></a>
+<p>
+Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer.
+</p>
+<h6 class="date">31st January,2018</h6>
+</div>
+</div>
+<div class="single-recent-blog-post item">
+<div class="thumb">
+<img class="img-fluid" src="{% static 'img/b1.jpg' %}" alt>
+</div>
+<div class="details">
+<div class="tags">
+<ul>
+<li>
+<a href="#">Travel</a>
+</li>
+<li>
+<a href="#">Life Style</a>
+</li>
+</ul>
+</div>
+<a href="#"><h4 class="title">Low Cost Advertising</h4></a>
+<p>
+Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer.
+</p>
+<h6 class="date">31st January,2018</h6>
+</div>
+</div>
+<div class="single-recent-blog-post item">
+<div class="thumb">
+<img class="img-fluid" src="{% static 'img/b2.jpg' %}" alt>
+</div>
+<div class="details">
+<div class="tags">
+<ul>
+<li>
+<a href="#">Travel</a>
+</li>
+<li>
+<a href="#">Life Style</a>
+</li>
+</ul>
+</div>
+<a href="#"><h4 class="title">Creative Outdoor Ads</h4></a>
+<p>
+Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer.
+</p>
+<h6 class="date">31st January,2018</h6>
+</div>
+</div>
+<div class="single-recent-blog-post item">
+<div class="thumb">
+<img class="img-fluid" src="{% static 'img/b3.jpg' %}" alt>
+</div>
+<div class="details">
+<div class="tags">
+<ul>
+<li>
+<a href="#">Travel</a>
+</li>
+<li>
+<a href="#">Life Style</a>
+</li>
+</ul>
+</div>
+<a href="#"><h4 class="title">It's Classified How To Utilize Free</h4></a>
+<p>
+Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer.
+</p>
+<h6 class="date">31st January,2018</h6>
 </div>
 </div>
 </div>
@@ -472,14 +685,14 @@ For business professionals caught between high OEM price and mediocre print and 
 <div class="single-footer-widget mail-chimp">
 <h6 class="mb-20">InstaFeed</h6>
 <ul class="instafeed d-flex flex-wrap">
-<li><img src="img/i1.jpg" alt></li>
-<li><img src="img/i2.jpg" alt></li>
-<li><img src="img/i3.jpg" alt></li>
-<li><img src="img/i4.jpg" alt></li>
-<li><img src="img/i5.jpg" alt></li>
-<li><img src="img/i6.jpg" alt></li>
-<li><img src="img/i7.jpg" alt></li>
-<li><img src="img/i8.jpg" alt></li>
+<li><img src="{% static 'img/i1.jpg'%}" alt></li>
+<li><img src="{% static 'img/i2.jpg'%}" alt></li>
+<li><img src="{% static 'img/i3.jpg'%}" alt></li>
+<li><img src="{% static 'img/i4.jpg'%}" alt></li>
+<li><img src="{% static 'img/i5.jpg'%}" alt></li>
+<li><img src="{% static 'img/i6.jpg'%}" alt></li>
+<li><img src="{% static 'img/i7.jpg'%}" alt></li>
+<li><img src="{% static 'img/i8.jpg'%}" alt></li>
 </ul>
 </div>
 </div>
@@ -498,20 +711,20 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
 </div>
 </footer>
 
-<script src="js/vendor/jquery-2.2.4.min.js"></script>
-<script src="js/popper.min.js"></script>
-<script src="js/vendor/bootstrap.min.js"></script>
+<script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
+<script src="{% static 'js/popper.min.js' %}"></script>
+<script src="{% static 'js/vendor/bootstrap.min.js' %}"></script>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBhOdIF3Y9382fqJYt5I_sswSrEw5eihAA"></script>
-<script src="js/jquery-ui.js"></script>
-<script src="js/easing.min.js"></script>
-<script src="js/hoverIntent.js"></script>
-<script src="js/superfish.min.js"></script>
-<script src="js/jquery.ajaxchimp.min.js"></script>
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/jquery.nice-select.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/mail-script.js"></script>
-<script src="js/main.js"></script>
+<script src="{% static 'js/jquery-ui.js' %}"></script>
+<script src="{% static 'js/easing.min.js' %}"></script>
+<script src="{% static 'js/hoverIntent.js' %}"></script>
+<script src="{% static 'js/superfish.min.js' %}"></script>
+<script src="{% static 'js/jquery.ajaxchimp.min.js' %}"></script>
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/mail-script.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
 
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
 <script>

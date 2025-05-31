@@ -5,7 +5,7 @@ from django.shortcuts import render
 from django.http import HttpResponse , JsonResponse
 
 def home(request):
-    return render(request, 'website/home.html')
+    return render(request, 'website/index.html')
 
 def about(request):
     return render(request, 'website/about.html')
