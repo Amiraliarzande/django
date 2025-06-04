@@ -6,4 +6,8 @@ def blog_home(request):
     return render(request, "blog/blog-home.html")
 
 def blog_single(request):
-    return render(request, "blog/blog-single.html")
+    context = {
+        "name" : "ashkan",
+        "last_name" : "arzandeh",
+    }
+    return render(request, "blog/blog-single.html",context)

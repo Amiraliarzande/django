@@ -16,4 +16,3 @@ def contact(request):
 def elements(request):
     return render(request, 'website/elements.html')
 
-
