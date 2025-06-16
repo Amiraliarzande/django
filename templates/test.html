@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test Page</title>
+</head>
+<body>
+    {% for post in posts %}
+        {% if post.status == 1 %}
+            <h2>{{ post.title }}</h2>
+            <p>{{ post.content }}</p>
+        {% endif %}
+
+        {% if post.status == 0 %}
+            <p>This post is not published yet.</p>
+        {% endif %}
+        
+    {% endfor %}
+</body>
+</html>
