@@ -4,7 +4,13 @@ from .models import post
 # Create your views here.
 
 def blog_home(request):
-    return render(request, "blog/blog-home.html")
+
+    data = post.objects.all()
+    context = {
+        "posts": data,
+    }
+
+    return render(request, "blog/blog-home.html",context)
 
 def blog_single(request):
     context = {
