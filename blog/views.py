@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render,get_object_or_404
 from .models import post
 
 # Create your views here.
@@ -19,11 +19,11 @@ def blog_single(request):
     }
     return render(request, "blog/blog-single.html",context)
 
-def test(request):
+def test(request,pk):
 
-    deta = post.objects.all()
+    data = get_object_or_404(post,id=pk)
     context = {
-        "posts": deta,
+        "posts": data,
     }
 
     return render(request, "test.html", context)
