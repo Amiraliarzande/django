@@ -14,9 +14,13 @@ def blog_home(request):
     return render(request, "blog/blog-home.html",context)
 
 def blog_single(request):
+def blog_single(request,pid):
+    posts = post.objects.filter(status=1)
+    data = get_object_or_404(posts, id=pid)
     context = {
         "name" : "ashkan",
         "last_name" : "arzandeh",
+        "post" : data
     }
     return render(request, "blog/blog-single.html",context)
 
