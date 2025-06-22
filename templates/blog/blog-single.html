@@ -7,9 +7,9 @@
       <div class="container">
         <div class="row d-flex align-items-center justify-content-center">
           <div class="about-content col-lg-12">
-            <h1 class="text-white">Blog Details Page</h1>
+            <h1 class="text-white">{{post.title}}</h1>
             <p class="text-white link-nav">
-              <a href="index.html">Home</a> <span class="lnr lnr-arrow-right"></span><a href="blog-home.html">Blog</a> <span class="lnr lnr-arrow-right"></span> <a href="blog-single.html">Blog Details Page</a>
+              <a href="{% url "website:home" %}">Home</a> <span class="lnr lnr-arrow-right"></span><a href="{% url "blog:blog_home" %}">Blog</a> <span class="lnr lnr-arrow-right"></span> <a href="{% url "blog:blog_single" pid=post.id %}">{{post.title}}</a>
             </p>
           </div>
         </div>
@@ -19,7 +19,7 @@
     <section class="post-content-area single-post-area">
       <div class="container">
         <div class="row">
-          <div class="col-lg-8 posts-list">
+          <div class="col-lg-8 post-list">
             <div class="single-post row">
               <div class="col-lg-12">
                 <div class="feature-img">
@@ -46,10 +46,10 @@
                     <a href="#">Mark wiens</a> <span class="lnr lnr-user"></span>
                   </p>
                   <p class="date col-lg-12 col-md-12 col-6">
-                    <a href="#">12 Dec, 2017</a> <span class="lnr lnr-calendar-full"></span>
+                    <a href="#">{{ post.published_date }}</a> <span class="lnr lnr-calendar-full"></span>
                   </p>
                   <p class="view col-lg-12 col-md-12 col-6">
-                    <a href="#">1.2M Views</a> <span class="lnr lnr-eye"></span>
+                    <a href="#">{{ post.counted_viwe }}</a> <span class="lnr lnr-eye"></span>
                   </p>
                   <p class="comments col-lg-12 col-md-12 col-6">
                     <a href="#">06 Comments</a> <span class="lnr lnr-bubble"></span>
@@ -71,25 +71,11 @@
                 </div>
               </div>
               <div class="col-lg-9 col-md-9">
-                <h3 class="mt-20 mb-20">Astronomy Binoculars A Great Alternative</h3>
-                <p class="excert">MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction.</p>
-                <p>Boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training. who has the willpower to actually sit through a self-imposed</p>
-                <p>Boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training. who has the willpower to actually sit through a self-imposed</p>
+                <h3 class="mt-20 mb-20">{{post.title}}</h3>
+                <p class="excert">{{post.content}}</p>
+                
               </div>
               <div class="col-lg-12">
-                <div class="quotes">MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower to actually sit through a self-imposed MCSE training.</div>
-                <div class="row mt-30 mb-30">
-                  <div class="col-6">
-                    <img class="img-fluid" src="{% static 'img/blog/post-img1.jpg' %}" alt />
-                  </div>
-                  <div class="col-6">
-                    <img class="img-fluid" src="{% static 'img/blog/post-img2.jpg' %}" alt />
-                  </div>
-                  <div class="col-lg-12 mt-30">
-                    <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower.</p>
-                    <p>MCSE boot camps have its supporters and its detractors. Some people do not understand why you should have to spend money on boot camp when you can get the MCSE study materials yourself at a fraction of the camp price. However, who has the willpower.</p>
-                  </div>
-                </div>
               </div>
             </div>
             <div class="navigation-area">
@@ -233,7 +219,7 @@
             <div class="widget-wrap">
               <div class="single-sidebar-widget search-widget">
                 <form class="search-form" action="#">
-                  <input placeholder="Search Posts" name="search" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search Posts'" />
+                  <input placeholder="Search post" name="search" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Search post'" />
                   <button type="submit"><i class="fa fa-search"></i></button>
                 </form>
               </div>
@@ -258,7 +244,7 @@
                 <p>Boot camps have its supporters andit sdetractors. Some people do not understand why you should have to spend money on boot camp when you can get. Boot camps have itssuppor ters andits detractors.</p>
               </div>
               <div class="single-sidebar-widget popular-post-widget">
-                <h4 class="popular-title">Popular Posts</h4>
+                <h4 class="popular-title">Popular post</h4>
                 <div class="popular-post-list">
                   <div class="single-post-list d-flex flex-row align-items-center">
                     <div class="thumb">
