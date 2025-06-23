@@ -6,7 +6,7 @@ from django.utils import timezone
 
 def blog_home(request):
 
-    data = post.objects.filter(published_date__lte=timezone.now())
+    data = post.objects.filter(status=True,published_date__lte=timezone.now())
     context = {
         "posts": data,
     }
