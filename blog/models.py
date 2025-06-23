@@ -7,7 +7,7 @@ class post (models.Model):
     title = models.CharField(max_length=255)
     content= models.TextField()
     author = models.ForeignKey(User,on_delete=models.SET_NULL,null=True)
-
+    image = models.ImageField(upload_to='blog/',default='blog/default.jpg')
     counted_viwe= models.IntegerField(default=0)
     status = models.BooleanField(default=True)
     published_date = models.DateTimeField(null=True)
