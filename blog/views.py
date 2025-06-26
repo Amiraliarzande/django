@@ -13,16 +13,21 @@ def blog_home(request):
 
     return render(request, "blog/blog-home.html",context)
 
-def blog_single(request):
-def blog_single(request,pid):
+
+def blog_single(request, pid):
     posts = post.objects.filter(status=1)
     data = get_object_or_404(posts, id=pid)
+
+    # استفاده از created_date مربوط به پست فعلی (data)
+    previous_post = post.objects.filter(created_date__lt=data.created_date, status=1).order_by('-created_date').first()
+    next_post = post.objects.filter(created_date__gt=data.created_date, status=1).order_by('created_date').first()
+
     context = {
-        "name" : "ashkan",
-        "last_name" : "arzandeh",
-        "post" : data
+        "post": data,
+        "next_post": next_post,
+        "previous_post": previous_post
     }
-    return render(request, "blog/blog-single.html",context)
+    return render(request, "blog/blog-single.html", context)
 
 def test(request,pk):
 
