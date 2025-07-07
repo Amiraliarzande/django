@@ -8,3 +8,7 @@ def status_post ():
     post_count = post.objects.filter(status=1).count()
     return post_count
     
+
+@register.filter
+def snippet (value,arg):
+    return value[:arg] + "..."
