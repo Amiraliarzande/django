@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+{% load blog_tag %}
   <section class="relative about-banner">
     <div class="overlay overlay-bg"></div>
     <div class="container">
@@ -277,6 +278,7 @@
             {% include "blog/advertising.html" %}
 
             {% load blog_tag %}
+            {% status_post %}
 
             <div class="single-sidebar-widget post-category-widget">
               <h4 class="category-title">Post Catgories</h4>
