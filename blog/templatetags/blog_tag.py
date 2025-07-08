@@ -17,4 +17,7 @@ def snippet (value,arg):
 @register.inclusion_tag("popularposts.html")
 def inclusion ():
     posts = post.objects.filter(status=1).order_by("updated_date")
+@register.inclusion_tag("blog/recentposts.html")
+def popular ():
+    posts = post.objects.filter(status=1).order_by("published_date")[:3]
     return {"posts":posts}
