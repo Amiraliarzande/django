@@ -1,3 +1,4 @@
+{% load blog_tag %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +7,8 @@
     <title>Test Page</title>
 </head>
 <body>
-    <p>
-        {{posts.title}}
-    </p>
+    
+        {% inclusion %}
+    
 </body>
 </html>

@@ -12,3 +12,9 @@ def status_post ():
 @register.filter
 def snippet (value,arg):
     return value[:arg] + "..."
+
+
+@register.inclusion_tag("popularposts.html")
+def inclusion ():
+    posts = post.objects.filter(status=1).order_by("updated_date")
+    return {"posts":posts}
