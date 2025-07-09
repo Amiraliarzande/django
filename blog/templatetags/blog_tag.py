@@ -1,5 +1,6 @@
 from django import template
 from blog.models import post
+from blog.models import post , Category
 
 register = template.Library()
 
@@ -21,3 +22,11 @@ def inclusion ():
 def popular ():
     posts = post.objects.filter(status=1).order_by("published_date")[:3]
     return {"posts":posts}
+@register.inclusion_tag("blog/category_display.html")
+def category_display ():
+    posts = post.objects.filter(status=1)
+    categorys = Category.objects.all()
+    cat_dict = {}
+    for name in categorys :
+        cat_dict[name] = posts.filter(category=name).count
+    return {"category" : cat_dict}
