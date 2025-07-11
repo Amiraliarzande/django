@@ -4,9 +4,13 @@ from django.utils import timezone
 
 # Create your views here.
 
-def blog_home(request):
+def blog_home(request,cat_name=None):
 
     data = post.objects.filter(status=True,published_date__lte=timezone.now())
+
+    if cat_name :
+        data = data.filter(category__name=cat_name)
+
     context = {
         "posts": data,
     }

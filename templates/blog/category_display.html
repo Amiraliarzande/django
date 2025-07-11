@@ -3,7 +3,7 @@
   <ul class="cat-list">
     {% for cat , count in category.items %}
     <li>
-      <a href="#" class="d-flex justify-content-between">
+      <a href="{% url "blog:category" cat_name=cat %}" class="d-flex justify-content-between">
         <p>{{cat}}</p>
         <p>{{count}}</p>
       </a>
