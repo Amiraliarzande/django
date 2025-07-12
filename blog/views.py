@@ -4,12 +4,15 @@ from django.utils import timezone
 
 # Create your views here.
 
-def blog_home(request,cat_name=None):
+def blog_home(request,**kwargs):
 
     data = post.objects.filter(status=True,published_date__lte=timezone.now())
 
-    if cat_name :
-        data = data.filter(category__name=cat_name)
+    if kwargs.get("cat_name") :
+        data = data.filter(category__name=kwargs["cat_name"],published_date__lte=timezone.now())
+
+    if kwargs.get("author_name") :
+        data = data.filter(author__username=kwargs["author_name"],published_date__lte=timezone.now())
 
     context = {
         "posts": data,
