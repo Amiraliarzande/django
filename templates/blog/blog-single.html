@@ -29,7 +29,9 @@
             <div class="col-lg-3 col-md-3 meta-details">
               <ul class="tags">
                 <li>
-                  <a href="#">{{ post.category.all|join:', ' }}</a>
+                  {% for cat in post.category.all %}
+                    <a href="#">{{ cat.name }}{% if not forloop.last %} , {% endif %}</a>
+                  {% endfor %}
                 </li>
               </ul>
               <div class="user-details row">
@@ -37,7 +39,7 @@
                   <a href="#">{{ post.author.get_full_name }}</a> <span class="lnr lnr-user"></span>
                 </p>
                 <p class="date col-lg-12 col-md-12 col-6">
-                  <a href="#">{{ post.published_date }}</a> <span class="lnr lnr-calendar-full"></span>
+                  <a href="#">{{ post.published_date|date:'d M Y' }}</a> <span class="lnr lnr-calendar-full"></span>
                 </p>
                 <p class="view col-lg-12 col-md-12 col-6">
                   <a href="#">{{ post.counted_viwe }}</a> <span class="lnr lnr-eye"></span>
@@ -87,7 +89,7 @@
                   <div class="thumb" hidden>
                     <a href="#"><img class="img-fluid" style="max-width: 50px;" src="" alt /></a>
                   </div>
-                  <div class="arrow">
+                  <div class="arrow" hidden>
                     <a href=""><span class="lnr text-white lnr-arrow-left"></span></a>
                   </div>
                   <div class="detials" hidden>
@@ -107,6 +109,19 @@
                   </div>
                   <div class="thumb">
                     <a href="{% url 'blog:blog_single' next_post.id %}"><img class="img-fluid" style="max-width: 50px;" src="{{ next_post.image.url }}" alt /></a>
+                  </div>
+                </div>
+              {% else %}
+                <div class="col-lg-6 col-md-6 col-12 nav-right flex-row d-flex justify-content-end align-items-center" hidden>
+                  <div class="detials" hidden>
+                    <p>Next Post</p>
+                    <a href="#"><h4></h4></a>
+                  </div>
+                  <div class="arrow" hidden>
+                    <a href="#"><span class="lnr text-white lnr-arrow-right"></span></a>
+                  </div>
+                  <div class="thumb" hidden>
+                    <a href="#"><img class="img-fluid" style="max-width: 50px;" src="" alt /></a>
                   </div>
                 </div>
               {% endif %}
@@ -233,53 +248,10 @@
             {% include "blog/writer.html" %}
 
 
-            <div class="single-sidebar-widget popular-post-widget">
-              <h4 class="popular-title">Popular post</h4>
-              <div class="popular-post-list">
-                <div class="single-post-list d-flex flex-row align-items-center">
-                  <div class="thumb">
-                    <img class="img-fluid" src="{% static 'img/blog/pp1.jpg' %}" alt />
-                  </div>
-                  <div class="details">
-                    <a href="blog-single.html"><h6>Space The Final Frontier</h6></a>
-                    <p>02 Hours ago</p>
-                  </div>
-                </div>
-                <div class="single-post-list d-flex flex-row align-items-center">
-                  <div class="thumb">
-                    <img class="img-fluid" src="{% static 'img/blog/pp2.jpg' %}" alt />
-                  </div>
-                  <div class="details">
-                    <a href="blog-single.html"><h6>The Amazing Hubble</h6></a>
-                    <p>02 Hours ago</p>
-                  </div>
-                </div>
-                <div class="single-post-list d-flex flex-row align-items-center">
-                  <div class="thumb">
-                    <img class="img-fluid" src="{% static 'img/blog/pp3.jpg' %}" alt />
-                  </div>
-                  <div class="details">
-                    <a href="blog-single.html"><h6>Astronomy Or Astrology</h6></a>
-                    <p>02 Hours ago</p>
-                  </div>
-                </div>
-                <div class="single-post-list d-flex flex-row align-items-center">
-                  <div class="thumb">
-                    <img class="img-fluid" src="{% static 'img/blog/pp4.jpg' %}" alt />
-                  </div>
-                  <div class="details">
-                    <a href="blog-single.html"><h6>Asteroids telescope</h6></a>
-                    <p>02 Hours ago</p>
-                  </div>
-                </div>
-              </div>
-            </div>
             {% popular %}
             
             {% include "blog/advertising.html" %}
 
-            {% load blog_tag %}
-            {% status_post %}
 
             <div class="single-sidebar-widget post-category-widget">
               <h4 class="category-title">Post Catgories</h4>
