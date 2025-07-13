@@ -44,3 +44,18 @@ def test(request,pk):
     }
 
     return render(request, "test.html", context)
+
+
+def blog_search(request):
+    data = post.objects.filter(status=True,published_date__lte=timezone.now())
+
+    if request.method == "GET" :
+        query = request.GET.get("q")
+        if query:
+            data = data.filter(content__icontains=query)
+
+    context = {
+        "posts": data,
+    }
+
+    return render(request, "blog/blog-home.html",context)
