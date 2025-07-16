@@ -1,9 +1,9 @@
 from django.shortcuts import render
-from blog.forms import Contactform
+from blog.forms import Contactform , newsletterform
 
 # Create your views here.
 
-from django.http import HttpResponse , JsonResponse
+from django.http import HttpResponse , JsonResponse ,HttpResponseRedirect
 
 def home(request):
     return render(request, 'website/index.html')
@@ -19,8 +19,22 @@ def contact (request):
             form.save()
         
     form = Contactform()
-    return render(request, "website/contact.html", {"form": form})
+    return render(request, "website/contact.html",{"form": form})
 
 def elements(request):
     return render(request, 'website/elements.html')
+
+def newsletter (request):
+
+    if request.method == "POST":
+        form = newsletterform(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponseRedirect('/')
+        
+    else:
+        return HttpResponseRedirect('/')
+    return render(request, "base.html",{"form": form})
+
+
 

@@ -60,3 +60,5 @@ def blog_search(request):
     }
 
     return render(request, "blog/blog-home.html",context)
+
+
