@@ -11,6 +11,5 @@ urlpatterns = [
     path('category/<str:cat_name>/', blog_home, name='category'),
     path('author/<str:author_name>/', blog_home, name='author'),
     path('search/', blog_search, name='blog_search'),
-    path('test/', test , name='test'),
 
 ]

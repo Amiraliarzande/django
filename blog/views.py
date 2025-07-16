@@ -47,18 +47,6 @@ def blog_single(request, pid):
     }
     return render(request, "blog/blog-single.html", context)
 
-def test(request):
-
-    if request.method == "POST":
-        form = Contactform(request.POST)
-        if form.is_valid():
-            form.save()
-            return HttpResponse("done")
-        
-    form = Contactform()
-    return render(request, "test.html", {"form": form})
-
-
 def blog_search(request):
     data = post.objects.filter(status=True,published_date__lte=timezone.now())
 
