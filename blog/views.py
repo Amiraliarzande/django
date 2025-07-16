@@ -1,7 +1,8 @@
-from django.shortcuts import render,get_object_or_404
-from .models import post
+from django.shortcuts import render,get_object_or_404,HttpResponse
+from blog.models import post 
 from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
+from blog.forms import Contactform
 
 # Create your views here.
 
@@ -46,14 +47,16 @@ def blog_single(request, pid):
     }
     return render(request, "blog/blog-single.html", context)
 
-def test(request,pk):
+def test(request):
 
-    data = get_object_or_404(post,id=pk)
-    context = {
-        "posts": data,
-    }
-
-    return render(request, "test.html", context)
+    if request.method == "POST":
+        form = Contactform(request.POST)
+        if form.is_valid():
+            form.save()
+            return HttpResponse("done")
+        
+    form = Contactform()
+    return render(request, "test.html", {"form": form})
 
 
 def blog_search(request):
