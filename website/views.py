@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from blog.forms import Contactform , newsletterform
+from django.contrib import messages
+
 
 # Create your views here.
 
@@ -17,6 +19,11 @@ def contact (request):
         form = Contactform(request.POST)
         if form.is_valid():
             form.save()
+            messages.success(request, "The operation has been performed correctly.")
+        else:
+            messages.error(request, "The operation was not performed correctly.")
+
+            
         
     form = Contactform()
     return render(request, "website/contact.html",{"form": form})

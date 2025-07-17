@@ -396,3 +396,19 @@ $(document).ready(function() {
     });
 
 });
+
+
+window.addEventListener('DOMContentLoaded', function () {
+    const CSSET = document.getElementById('set');
+    if (CSSET) {
+        setTimeout(() => {
+            
+            CSSET.classList.remove('show');
+            
+            
+            setTimeout(() => {
+                CSSET.remove();
+            }, 500);
+        }, 4000);
+    }
+});
