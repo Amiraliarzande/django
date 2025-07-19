@@ -82,6 +82,13 @@
         </div>
     </header>
 
+    {% if messages %}
+    {% for message in messages %}
+    <div id="django-message" data-text="{{ message }}" data-icon="{{ message.tags }}">
+    </div>
+    {% endfor %}
+    {% endif %}
+
     {% block content %}
 
 
@@ -194,7 +201,7 @@
     <script src="{% static 'js/owl.carousel.min.js' %}"></script>
     <script src="{% static 'js/mail-script.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
-
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>
         window.dataLayer = window.dataLayer || [];

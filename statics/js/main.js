@@ -398,17 +398,17 @@ $(document).ready(function() {
 });
 
 
-window.addEventListener('DOMContentLoaded', function () {
-    const CSSET = document.getElementById('set');
-    if (CSSET) {
-        setTimeout(() => {
-            
-            CSSET.classList.remove('show');
-            
-            
-            setTimeout(() => {
-                CSSET.remove();
-            }, 500);
-        }, 4000);
+document.addEventListener("DOMContentLoaded", function () {
+    const message = document.getElementById("django-message");
+    if (message) {
+        const text = message.dataset.text;
+        const icon = message.dataset.icon;
+
+        Swal.fire({
+            text: text,
+            icon: icon || 'info',
+            title: 'notification',
+            confirmButtonText: 'ok',
+        });
     }
 });

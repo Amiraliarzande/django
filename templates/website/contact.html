@@ -2,13 +2,7 @@
 {% load static %}
 {% block content %}
 
-{% if messages %}
-  <div id="set" class="alert alert-success alert-dismissible fade show" role="alert">
-    {% for message in messages %}
-      <span class="alert-link">{{ message }}</span>
-    {% endfor %}
-  </div>
-{% endif %}
+
 
 	<section class="relative about-banner">
 		<div class="overlay overlay-bg"></div>
@@ -78,7 +72,7 @@
 									class="common-input mb-20 form-control" required type="email">
 								<input name="subject" placeholder="Enter subject"
 									onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter subject'"
-									class="common-input mb-20 form-control" required type="text">
+									class="common-input mb-20 form-control" type="text">
 							</div>
 							<div class="col-lg-6 form-group">
 								<textarea class="common-textarea form-control" name="message"

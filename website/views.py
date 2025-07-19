@@ -18,7 +18,9 @@ def contact (request):
     if request.method == "POST":
         form = Contactform(request.POST)
         if form.is_valid():
-            form.save()
+            instance = form.save(commit=False)
+            instance.name = "Anonymous" 
+            instance.save()
             messages.success(request, "The operation has been performed correctly.")
         else:
             messages.error(request, "The operation was not performed correctly.")
