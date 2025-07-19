@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'website',  # Custom app for the website
     'blog',  # Custom app for the blog
+    'django.contrib.humanize',  # For humanizing data in templates
 ]
 
 MIDDLEWARE = [

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% block content %}
+{% load humanize %}
 {% load blog_tag %}
   <section class="relative about-banner">
     <div class="overlay overlay-bg"></div>
@@ -39,7 +40,7 @@
                   <a href="#">{{ post.author.get_full_name }}</a> <span class="lnr lnr-user"></span>
                 </p>
                 <p class="date col-lg-12 col-md-12 col-6">
-                  <a href="#">{{ post.published_date|date:'d M Y' }}</a> <span class="lnr lnr-calendar-full"></span>
+                  <a href="#">{{ post.published_date|naturalday }}</a> <span class="lnr lnr-calendar-full"></span>
                 </p>
                 <p class="view col-lg-12 col-md-12 col-6">
                   <a href="#">{{ post.counted_viwe }}</a> <span class="lnr lnr-eye"></span>
