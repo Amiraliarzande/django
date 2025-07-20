@@ -39,10 +39,12 @@ def newsletter (request):
         form = newsletterform(request.POST)
         if form.is_valid():
             form.save()
-            return HttpResponseRedirect('/')
+            messages.success(request, "The operation has been performed correctly.")
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
+        else:
+            messages.error(request, "The operation was not performed correctly.")
+            return HttpResponseRedirect(request.META.get('HTTP_REFERER', '/'))
         
-    else:
-        return HttpResponseRedirect('/')
     return render(request, "base.html",{"form": form})
 
 
