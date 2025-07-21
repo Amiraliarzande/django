@@ -42,9 +42,14 @@ INSTALLED_APPS = [
     'django.contrib.humanize',  # For humanizing data in templates
     'django.contrib.sites',  # For site framework
     'django.contrib.sitemaps',  # For sitemaps
+    'robots',  # For robots.txt handling
 ]
 
-SITE_ID = 2
+SITE_ID = 2 # Set the site ID for the site framework
+
+ROBOTS_USE_HOST = False # Disable host checking for robots.txt
+
+ROBOTS_USE_SITEMAP = False # Disable sitemap URL in robots.txt
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
