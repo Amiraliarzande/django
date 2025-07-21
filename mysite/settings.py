@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'django.contrib.sites',  # For site framework
     'django.contrib.sitemaps',  # For sitemaps
     'robots',  # For robots.txt handling
+    'debug_toolbar', # Debug toolbar for development
 ]
 
 SITE_ID = 2 # Set the site ID for the site framework
@@ -59,6 +60,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'debug_toolbar.middleware.DebugToolbarMiddleware',  # Middleware for debug toolbar
 ]
 
 
@@ -145,3 +147,8 @@ MEDIA_ROOT = BASE_DIR / 'media'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
+INTERNAL_IPS = [
+    # For debug toolbar to work correctly
+    "127.0.0.1",
+    
+]
