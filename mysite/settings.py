@@ -40,7 +40,11 @@ INSTALLED_APPS = [
     'website',  # Custom app for the website
     'blog',  # Custom app for the blog
     'django.contrib.humanize',  # For humanizing data in templates
+    'django.contrib.sites',  # For site framework
+    'django.contrib.sitemaps',  # For sitemaps
 ]
+
+SITE_ID = 2
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
