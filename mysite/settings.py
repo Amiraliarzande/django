@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'robots',  # For robots.txt handling
     'debug_toolbar', # Debug toolbar for development
     'taggit',  # For tagging functionality in blog
+    'django_summernote',  # For rich text editing in blog posts
 ]
 
 SITE_ID = 2 # Set the site ID for the site framework
@@ -153,3 +154,38 @@ INTERNAL_IPS = [
     "127.0.0.1",
     
 ]
+
+X_FRAME_OPTIONS = 'SAMEORIGIN' # Prevent clickjacking attacks
+
+SUMMERNOTE_THEME = 'bs4' # Use Bootstrap 4 theme for Summernote editor
+
+SUMMERNOTE_CONFIG = {
+    # Using SummernoteWidget - iframe mode, default
+    'iframe': True,
+
+    # You can put custom Summernote settings
+    'summernote': {
+        # As an example, using Summernote Air-mode
+        'airMode': False,
+
+        # Change editor size
+        'width': '100%',
+        'height': '480',
+
+        # Use proper language setting automatically (default)
+        'lang': None,
+
+        # Toolbar customization
+        # https://summernote.org/deep-dive/#custom-toolbar-popover
+        'toolbar': [
+            ['style', ['style']],
+            ['font', ['bold', 'underline', 'clear']],
+            ['fontname', ['fontname']],
+            ['color', ['color']],
+            ['para', ['ul', 'ol', 'paragraph']],
+            ['table', ['table']],
+            ['insert', ['link', 'picture', 'video']],
+            ['view', ['fullscreen', 'codeview', 'help']],
+        ],
+
+    }}
