@@ -16,6 +16,9 @@ def blog_home(request,**kwargs):
     if kwargs.get("author_name") :
         data = data.filter(author__username=kwargs["author_name"],published_date__lte=timezone.now())
 
+    if kwargs.get("tag_name") != None:
+        data = data.filter(tags__name__in=[kwargs["tag_name"]],published_date__lte=timezone.now())
+
     p = Paginator(data , 3)
     page_number  = request.GET.get('page')
     try : 

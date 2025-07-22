@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'django.contrib.sitemaps',  # For sitemaps
     'robots',  # For robots.txt handling
     'debug_toolbar', # Debug toolbar for development
+    'taggit',  # For tagging functionality in blog
 ]
 
 SITE_ID = 2 # Set the site ID for the site framework
