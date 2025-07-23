@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     'debug_toolbar', # Debug toolbar for development
     'taggit',  # For tagging functionality in blog
     'django_summernote',  # For rich text editing in blog posts
+    'captcha', # For captcha functionality
 ]
 
 SITE_ID = 2 # Set the site ID for the site framework

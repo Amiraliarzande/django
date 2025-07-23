@@ -42,6 +42,7 @@ urlpatterns = [
     path('robots.txt', include('robots.urls')), # For robots.txt handling
     path('__debug__/', include(debug_toolbar.urls)),  # Debug toolbar URLs
     path('summernote/', include('django_summernote.urls')), # For rich text editing in blog posts
+    path('captcha/', include('captcha.urls')),  # For captcha functionality
 ]
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
