@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'multi_captcha_admin', # For admin captcha functionality
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -48,6 +49,12 @@ INSTALLED_APPS = [
     'django_summernote',  # For rich text editing in blog posts
     'captcha', # For captcha functionality
 ]
+
+# captcha admin settings
+MULTI_CAPTCHA_ADMIN = {
+    'engine': 'simple-captcha',
+}
+
 
 SITE_ID = 2 # Set the site ID for the site framework
 
