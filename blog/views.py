@@ -1,8 +1,10 @@
 from django.shortcuts import render,get_object_or_404,HttpResponse
-from blog.models import post 
+from blog.models import post , Comment
 from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
-from blog.forms import Contactform
+from blog.forms import Contactform, CommentForm
+from django.contrib import messages
+
 
 # Create your views here.
 
@@ -36,9 +38,18 @@ def blog_home(request,**kwargs):
 
 
 def blog_single(request, pid):
+    
+    if request.method == "POST":
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, "The comment was submitted correctly.")
+        else:
+            messages.error(request, "The comment was not sent correctly.")
+
     posts = post.objects.filter(status=1)
     data = get_object_or_404(posts, id=pid)
-
+    comment = Comment.objects.filter(post=data, approved=True)
     # استفاده از created_date مربوط به پست فعلی (data)
     previous_post = post.objects.filter(created_date__lt=data.created_date, status=1).order_by('-created_date').first()
     next_post = post.objects.filter(created_date__gt=data.created_date, status=1).order_by('created_date').first()
@@ -46,7 +57,8 @@ def blog_single(request, pid):
     context = {
         "post": data,
         "next_post": next_post,
-        "previous_post": previous_post
+        "previous_post": previous_post,
+        "comments": comment,
     }
     return render(request, "blog/blog-single.html", context)
 
