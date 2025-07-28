@@ -6,18 +6,17 @@
 </hgroup>
 <form action="{% url 'accounts:login' %}" method="post">
   {% csrf_token %}
-  
-  <div class="group">
+  {{form.as_p}}
+  {% comment %} <div class="group">
     <input type="text" name="username"><span class="highlight"></span><span class="bar"></span>
     <label>USERNAME</label>
   </div>
   <div class="group">
     <input type="password" name="password"><span class="highlight"></span><span class="bar"></span>
     <label>PASSWORD</label>
-  </div>
+  </div> {% endcomment %}
   <button type="submit" class="button buttonBlue">Subscribe
     <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
   </button>
 </form>
-
 <script src="{% static 'js/login.js' %}"></script>
