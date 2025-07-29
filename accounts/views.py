@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth import logout
+
 
 # Create your views here.
 
@@ -31,8 +33,12 @@ def login_view(request):
         return redirect('/')
         
 
-# def logout_view(request):
-    # Logic for handling logout
+def logout_view(request):
+        
+    if request.user.is_authenticated:
+        logout(request)
+        messages.success(request, "You have been logged out.")
+    return redirect('/')
 
 def signup_view(request):
     # Logic for handling signup
