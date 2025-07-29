@@ -56,8 +56,9 @@ label {
 	position: absolute;
 	pointer-events: none;
 	left: 5px;
-	top: 10px;
+	top: -20px;
 	transition: all 0.2s ease;
+	
 }
 
 
@@ -68,8 +69,9 @@ input:focus ~ label, input.used ~ label {
   transform: scale(.75); left: -2px;
 	/* font-size: 14px; */
 	color: #4a89dc;
+	transition: 0.3s;
+	display: none;
 }
-
 
 /* Underline */
 
