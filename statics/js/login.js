@@ -33,3 +33,21 @@ $(window, document, undefined).ready(function() {
   });
 
 });
+
+document.addEventListener('DOMContentLoaded', function () {
+  const form = document.getElementById('signupForm');
+  const password1 = document.getElementById('password1');
+  const password2 = document.getElementById('password2');
+  const errorMsg = document.getElementById('error-message');
+
+  if (form && password1 && password2) {
+    form.addEventListener('submit', function (e) {
+      if (password1.value !== password2.value) {
+        e.preventDefault();
+        errorMsg.style.display = 'block';
+      } else {
+        errorMsg.style.display = 'none';
+      }
+    });
+  }
+});
