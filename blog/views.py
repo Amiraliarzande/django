@@ -4,10 +4,10 @@ from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from blog.forms import Contactform, CommentForm
 from django.contrib import messages
-
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
-
+@login_required
 def blog_home(request,**kwargs):
 
     data = post.objects.filter(status=True,published_date__lte=timezone.now())
