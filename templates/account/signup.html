@@ -1,11 +1,27 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
-</head>
-<body>
-    <a>Sign up</a>
-</body>
-</html>
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/login.css' %}">
+
+<hgroup>
+  <h1>Sign Up</h1>
+</hgroup>
+<form action="{% url 'accounts:signup' %}" method="post">
+  {% csrf_token %} 
+
+  <div class="group">
+    <input type="text" name="username"><span class="highlight"></span><span class="bar"></span>
+    <label>USERNAME</label>
+  </div>
+  <div class="group">
+    <input type="password" name="password1"><span class="highlight"></span><span class="bar"></span>
+    <label>PASSWORD</label>
+  </div>
+  <div class="group">
+    <input type="password" name="password2"><span class="highlight"></span><span class="bar"></span>
+    <label>CONFIRM PASSWORD</label>
+  </div>
+  <button type="submit" class="button buttonBlue">Subscribe
+    <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+  </button>
+  
+</form>
+<script src="{% static 'js/login.js' %}"></script>

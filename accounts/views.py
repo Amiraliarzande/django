@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect 
 from django.contrib import messages
 from django.contrib.auth import authenticate, login
-from django.contrib.auth.forms import AuthenticationForm
+from django.contrib.auth.forms import AuthenticationForm , UserCreationForm
 from django.contrib.auth import logout
 
 
@@ -41,5 +41,23 @@ def logout_view(request):
     return redirect('/')
 
 def signup_view(request):
-    # Logic for handling signup
-    return render(request, 'account/signup.html')
+
+    if not request.user.is_authenticated:
+        if request.method == "POST" :
+            form = UserCreationForm(request.POST)
+            if form.is_valid():
+                form.save()
+                messages.success(request, "Account created successfully.")
+                return redirect('/')
+            else:
+                messages.error(request, "Account creation failed.")
+        form = UserCreationForm()
+        context = {
+        'form': form
+        }
+        return render(request, 'account/signup.html', context)
+    else:
+
+        return redirect('/')
+
+            
