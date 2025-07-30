@@ -4,10 +4,11 @@ from django.utils import timezone
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from blog.forms import Contactform, CommentForm
 from django.contrib import messages
-from django.contrib.auth.decorators import login_required
+from django.urls import reverse
+from django.http import HttpResponseRedirect
 
 # Create your views here.
-@login_required
+
 def blog_home(request,**kwargs):
 
     data = post.objects.filter(status=True,published_date__lte=timezone.now())
@@ -49,18 +50,22 @@ def blog_single(request, pid):
 
     posts = post.objects.filter(status=1)
     data = get_object_or_404(posts, id=pid)
-    comment = Comment.objects.filter(post=data, approved=True)
-    # استفاده از created_date مربوط به پست فعلی (data)
-    previous_post = post.objects.filter(created_date__lt=data.created_date, status=1).order_by('-created_date').first()
-    next_post = post.objects.filter(created_date__gt=data.created_date, status=1).order_by('created_date').first()
+    if not data.login_required or (data.login_required and request.user.is_authenticated):
+        comment = Comment.objects.filter(post=data, approved=True)
+        # استفاده از created_date مربوط به پست فعلی (data)
+        previous_post = post.objects.filter(created_date__lt=data.created_date, status=1).order_by('-created_date').first()
+        next_post = post.objects.filter(created_date__gt=data.created_date, status=1).order_by('created_date').first()
 
-    context = {
-        "post": data,
-        "next_post": next_post,
-        "previous_post": previous_post,
-        "comments": comment,
-    }
-    return render(request, "blog/blog-single.html", context)
+        context = {
+            "post": data,
+            "next_post": next_post,
+            "previous_post": previous_post,
+            "comments": comment,
+        }
+        return render(request, "blog/blog-single.html", context)
+    else:
+        return HttpResponseRedirect(reverse("accounts:login"))
+
 
 def blog_search(request):
     data = post.objects.filter(status=True,published_date__lte=timezone.now())
