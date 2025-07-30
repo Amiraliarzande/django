@@ -8,6 +8,8 @@
 <form id="signupForm" action="{% url 'accounts:signup' %}" method="post">
   {% csrf_token %} 
 
+  <input name="next" type="hidden" value="{{ next }}"/>
+
   <div class="group">
     <input type="text" name="username" required><span class="highlight"></span><span class="bar"></span>
     <label>USERNAME</label>

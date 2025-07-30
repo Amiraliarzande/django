@@ -6,6 +6,8 @@ from blog.forms import Contactform, CommentForm
 from django.contrib import messages
 from django.urls import reverse
 from django.http import HttpResponseRedirect
+from django.utils.http import urlencode
+from django.urls import reverse
 
 # Create your views here.
 
@@ -64,7 +66,10 @@ def blog_single(request, pid):
         }
         return render(request, "blog/blog-single.html", context)
     else:
-        return HttpResponseRedirect(reverse("accounts:login"))
+        login_url = reverse("accounts:login")
+        query_string = urlencode({"next": request.path})
+        url_with_next = f"{login_url}?{query_string}"
+        return HttpResponseRedirect(url_with_next)
 
 
 def blog_search(request):

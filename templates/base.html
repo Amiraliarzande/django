@@ -41,10 +41,10 @@
                         <ul>
                             {% if user.is_authenticated %}
                             <li><a href="#">{{ user.username }}</a></li>
-                            <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+                            <li><a href="{% url 'accounts:logout' %}?next={{ request.path }}">Logout</a></li>
                             {% else %}
-                            <li><a href="{% url 'accounts:login' %}">Login</a></li>
-                            <li><a href="{% url 'accounts:signup' %}">Sign Up</a></li>
+                            <li><a href="{% url 'accounts:login' %}?next={{ request.path }}">Login</a></li>
+                            <li><a href="{% url 'accounts:signup' %}?next={{ request.path }}">Sign Up</a></li>
                             {% endif %}
                         </ul>
                     </div>
