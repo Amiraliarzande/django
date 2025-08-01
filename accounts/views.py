@@ -6,6 +6,9 @@ from django.contrib.auth import logout
 from urllib.parse import urlparse
 from django.http import HttpResponseRedirect
 from django.urls import is_valid_path
+from accounts.forms import RegistrationForm
+from django.contrib.auth.models import User
+from accounts.forms import CustomLoginForm
 
 # Create your views here.
 
@@ -16,12 +19,23 @@ def login_view(request):
     if not request.user.is_authenticated:
     
         if request.method == "POST":
-            form = AuthenticationForm(request=request, data=request.POST)
+            form = CustomLoginForm(request.POST)
             next_url = request.POST.get('next', '/')
-            print("Next URL:", next_url)
             if form.is_valid():
-                username = form.cleaned_data.get('username')
+                identifier = form.cleaned_data.get('identifier')
                 password = form.cleaned_data.get('password')
+
+                try:
+                    user_obj = User.objects.get(email=identifier)
+                    username = user_obj.username
+                    
+                except User.DoesNotExist:
+                    username = identifier
+
+                except User.MultipleObjectsReturned:
+                    messages.error(request, "Multiple users found with this email. Use your username instead.")
+                    return render(request, 'account/login.html', {'form': form, 'next': next_url})
+
                 user = authenticate(request, username=username, password=password)
                 if user is not None:
                     login(request, user)
@@ -56,7 +70,7 @@ def signup_view(request):
 
     if not request.user.is_authenticated:
         if request.method == "POST" :
-            form = UserCreationForm(request.POST)
+            form = RegistrationForm(request.POST)
             if form.is_valid():
                 form.save()
                 messages.success(request, "Account created successfully.")
@@ -69,8 +83,8 @@ def signup_view(request):
                 return redirect('/')
             else:
                 messages.error(request, "Account creation failed.")
-                
-        form = UserCreationForm()
+
+        form = RegistrationForm()
         context = {
             'form': form,
             'next': next_url
