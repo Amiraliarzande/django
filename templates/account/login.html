@@ -18,6 +18,10 @@
   <button type="submit" class="button buttonBlue">Subscribe
     <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
   </button>
+  <a href="{% url 'accounts:reset_password' %}" class="button buttonBlue">
+  Forgot Password
+  <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+  </a>
   
 </form>
 <script src="{% static 'js/login.js' %}"></script>

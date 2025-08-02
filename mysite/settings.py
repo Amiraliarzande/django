@@ -198,3 +198,13 @@ SUMMERNOTE_CONFIG = {
         ],
 
     }}
+
+
+# set send email for forgetting password in User email
+EMAIL_BACKEND='django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_HOST_USER='amiraliarzande8@gmail.com'
+EMAIL_HOST_PASSWORD='pkrm smns dwim atut'
+DEFAULT_FROM_EMAIL="amiraliarzande8@gmail.com"

@@ -149,15 +149,19 @@ input:focus ~ .highlight {
   border-bottom: 2px solid #3160B6;
   cursor: pointer;
   transition: all 0.15s ease;
+  text-decoration: none;
 }
 .button:focus { outline: 0; }
 
-
+.button.buttonBlue {
+  text-decoration: none;
+}
 /* Button modifiers */
 
 .buttonBlue {
   background: #4a89dc;
   text-shadow: 1px 1px 0 rgba(39, 110, 204, .5);
+  text-decoration: none;
 }
 
 .buttonBlue:hover { background: #357bd8; }
@@ -236,3 +240,4 @@ footer img {
 footer img:hover { opacity: .83; }
 
 footer img:focus , footer a:focus { outline: none; }
+
