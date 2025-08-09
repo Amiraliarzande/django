@@ -21,6 +21,7 @@ from django.contrib.sitemaps.views import sitemap
 from website.sitemaps import StaticViewSitemap
 from blog.sitemaps import postsitemap
 import debug_toolbar 
+from . import views
 
 sitemaps = {
     'static': StaticViewSitemap,
@@ -32,6 +33,8 @@ urlpatterns = [
     path('', include('website.urls')),
     path('blog/', include('blog.urls')),
     path('accounts/', include('accounts.urls')),
+
+    path('maintenance/', views.maintenance, name='maintenance'),
 
     path(
         "sitemap.xml",
