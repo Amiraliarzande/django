@@ -208,3 +208,7 @@ EMAIL_USE_TLS=True
 EMAIL_HOST_USER='amiraliarzande8@gmail.com'
 EMAIL_HOST_PASSWORD='pkrm smns dwim atut'
 DEFAULT_FROM_EMAIL="amiraliarzande8@gmail.com"
+
+# Security settings
+SESSION_COOKIE_SECURE = True
+CSRF_COOKIE_SECURE = True  
